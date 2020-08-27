@@ -43,7 +43,7 @@ variable "essential" {
 }
 
 variable "entry_point" {
-  description = "Optional entrypoint override"
+  description = "Optional entry point override"
   type = list(string)
   default = []
 }
