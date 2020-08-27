@@ -21,7 +21,6 @@ locals {
       }
     },
     local.ulimits,
-    local.volumes,
     local.volumes_efs,
     local.volumes_from,
     local.port_mappings,
