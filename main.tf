@@ -17,6 +17,11 @@ locals {
   volumes = length(var.volumes) == 0 ? null : {
     volumes = [
       for volume in var.volumes: {
+        dockerVolumeConfiguration = null
+        efsVolumeConfiguration = null
+        host = {
+          sourcePath = null
+        }
         name = volume
       }
     ]
