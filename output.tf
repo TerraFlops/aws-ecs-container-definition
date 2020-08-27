@@ -19,29 +19,6 @@ locals {
           "awslogs-stream-prefix" = var.name
         }
       }
-      dnsSearchDomains = null
-      environmentFiles = null
-      firelensConfiguration = null
-      dependsOn = null
-      disableNetworking = null
-      interactive = null
-      healthCheck = null
-      essential = true
-      links = null
-      hostname = null
-      extraHosts = null
-      pseudoTerminal = null
-      user = null
-      readonlyRootFilesystem = true
-      dockerLabels = null
-      systemControls = null
-      privileged = null
-      linuxParameters = null
-      resourceRequirements = null
-      dnsServers = null
-      secrets = null
-      dockerSecurityOptions = null
-      memoryReservation = null
     },
     local.ulimits,
     local.volumes,
