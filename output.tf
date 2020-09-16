@@ -39,7 +39,12 @@ locals {
       linuxParameters = null
       resourceRequirements = null
       dnsServers = null
-      secrets = null
+      secrets = [
+        for key, arn in var.secrets: {
+          name = key
+          valueFrom = arn
+        }
+      ]
       dockerSecurityOptions = null
       memoryReservation = null
     },

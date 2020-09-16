@@ -31,6 +31,12 @@ variable "cpu" {
   type = number
 }
 
+variable "secrets" {
+  description = "Optional map of secrets to pass into the task definition"
+  type = map(string)
+  default = {}
+}
+
 variable "memory" {
   description = "The amount of memory (in MiB) to reserve for the container. This must fit within the total amount of reserved memory for all containers in the task"
   type = number
