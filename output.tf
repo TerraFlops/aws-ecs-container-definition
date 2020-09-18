@@ -32,7 +32,7 @@ locals {
       extraHosts = null
       pseudoTerminal = null
       user = null
-      readonlyRootFilesystem = true
+      readonlyRootFilesystem = var.read_only_root_filesystem
       dockerLabels = null
       systemControls = null
       privileged = null
