@@ -3,7 +3,7 @@ data "aws_region" "default" {}
 
 locals {
   # Create port mapping block
-  port_mappings = length(var.port_mappings) == 0 ? null : {
+  port_mappings = length(var.port_mappings) == 0 ? [] : {
     portMappings = [
     for port_mapping in var.port_mappings: {
       hostPort = port_mapping["port"]
@@ -14,7 +14,7 @@ locals {
   }
 
   # Create volumes block
-  volumes = length(var.volumes) == 0 ? null : {
+  volumes = length(var.volumes) == 0 ? [] : {
     volumes = [
       for volume in var.volumes: {
         dockerVolumeConfiguration = null
@@ -28,7 +28,7 @@ locals {
   }
 
   # Create EFS volumes block
-  volumes_efs = length(var.volumes_efs) == 0 ? null : {
+  volumes_efs = length(var.volumes_efs) == 0 ? [] : {
     volumes_efs = [
       for volume_efs in var.volumes_efs: {
         dockerVolumeConfiguration = null
@@ -42,7 +42,7 @@ locals {
   }
 
   # Create volumes from block
-  volumes_from = length(var.volumes_from) == 0 ? null : {
+  volumes_from = length(var.volumes_from) == 0 ? [] : {
     volumesFrom = [
       for volume_from in var.volumes_from: {
         readOnly = volume_from["read_only"]
@@ -52,7 +52,7 @@ locals {
   }
   
   # Create ulimits block
-  ulimits = length(var.ulimits) == 0 ? null : {
+  ulimits = length(var.ulimits) == 0 ? [] : {
     ulimits = [
       for ulimit in var.ulimits: {
         hardLimit = ulimit["hard_limit"]
@@ -63,7 +63,7 @@ locals {
   }  
 
   # Create mount point block
-  mount_points = length(var.mount_points) == 0 ? null : {
+  mount_points = length(var.mount_points) == 0 ? [] : {
     mountPoints = [
       for mount_point in var.mount_points: {
         readOnly: mount_point["read_only"]
@@ -74,7 +74,7 @@ locals {
   }
 
   # Create environment variables block
-  environment_variables = length(var.environment_variables) == 0 ? null : {
+  environment_variables = length(var.environment_variables) == 0 ? [] : {
     environment = [
       for key, value in var.environment_variables: tomap({
         name: key
